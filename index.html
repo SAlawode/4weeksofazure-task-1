@@ -6,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>samuel</title>
+    <title>Samuel</title>
 </head>
 <body>
     <div class="grid-2">
         <div class="section-1">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
             <img src="me.jpg" alt="Profile Picture" class="profile-pic">
             <h2>Samuel Alawode</h2>
             <p>Lagos, Nigeria.</p>
@@ -20,16 +24,14 @@
         </div>
         <div class="section-2">
             <h2>About</h2>
-            <p>Samuel Alawode is a cloud world class cloud engineer who has helped many organizations all around the world to migrate from thier traditional services to the cloud. After six years of industry experience he's now chosen the self-employment path of freelancing. 
-             When he is not building high-end apps in the cloud, he spends his time reading books and lsitening to classical music.</p>
+            <p>Samuel Alawode is a world-class cloud engineer who has helped many organizations all around the world to migrate from their traditional services to the cloud. After six years of industry experience, he's now chosen the self-employment path of freelancing. When he is not building high-end apps in the cloud, he spends his time reading books and listening to classical music.</p>
             <h2>Experience</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis in maiores autem quidem.</p>
-
             <h2>Skills</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis in maiores autem quidem obcaecati excepturi! Cupiditate eaque itaque magni voluptatibus neque nobis est dolor? Atque sunt minus ipsa asperiores. At.</p>
             <h2>Projects</h2>
             <a href="#">A grading machine on azure </a>
-            <a href="#">A face detector in aws</a>
+            <a href="#">A face detector in AWS</a>
             <a href="#">Project 3</a>
             <a href="#">Project 4</a>
             <a href="#">Project 5</a>
@@ -37,5 +39,30 @@
             <p>alawodes57@gmail.com</p>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const toggleSwitch = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+            if (currentTheme) {
+                document.documentElement.setAttribute('data-theme', currentTheme);
+
+                if (currentTheme === 'dark') {
+                    toggleSwitch.checked = true;
+                }
+            }
+
+            toggleSwitch.addEventListener('change', function (e) {
+                if (e.target.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
