@@ -134,12 +134,17 @@ a {
 }
 
 /* Toggle Switch Styles */
+.theme-toggle-container {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+}
+
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin: 10px;
 }
 
 .switch input {
